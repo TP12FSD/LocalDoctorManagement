@@ -4,14 +4,16 @@ using LocalDoctorManagement.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LocalDoctorManagement.Server.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221207084841_AddedDefaultDataAndUser")]
+    partial class AddedDefaultDataAndUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -188,25 +190,6 @@ namespace LocalDoctorManagement.Server.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "78aff25e-fed2-4e1b-bdf2-d049223c3b72",
-                            Email = "admin@localhost.com",
-                            EmailConfirmed = false,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "ADMIN@LOCALHOST.COM",
-                            NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAELJO+ipVdvQ9DdvjI5dBEgWvro7X2R36BVTmjwOr+uQIE9FHD5lykYg7I3cFZsDqdg==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "9cad0de7-cba4-4fba-b649-ed19bb26837e",
-                            TwoFactorEnabled = false,
-                            UserName = "Admin",
-                            name = "Admin"
-                        });
                 });
 
             modelBuilder.Entity("LocalDoctorManagement.Shared.Domain.Patient", b =>
@@ -249,13 +232,13 @@ namespace LocalDoctorManagement.Server.Data.Migrations
                         {
                             Id = 1,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2022, 12, 7, 16, 50, 56, 88, DateTimeKind.Local).AddTicks(7590),
-                            DateUpdated = new DateTime(2022, 12, 7, 16, 50, 56, 89, DateTimeKind.Local).AddTicks(7216),
+                            DateCreated = new DateTime(2022, 12, 7, 16, 48, 41, 311, DateTimeKind.Local).AddTicks(8147),
+                            DateUpdated = new DateTime(2022, 12, 7, 16, 48, 41, 312, DateTimeKind.Local).AddTicks(6073),
                             FoodRestrictions = "Chicken, Broccoli",
                             Name = "Test Subject",
-                            PillTime = "16:50",
+                            PillTime = "16:48",
                             UpdatedBy = "System",
-                            WaterTime = "16:50"
+                            WaterTime = "16:48"
                         });
                 });
 
@@ -284,22 +267,6 @@ namespace LocalDoctorManagement.Server.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "ad2bcf0c-20db-474f-8407-5a6b159518ba",
-                            ConcurrencyStamp = "9db4a212-417d-4dfc-9677-796c53bbe85e",
-                            Name = "Administrator",
-                            NormalizedName = "ADMINISTRATOR"
-                        },
-                        new
-                        {
-                            Id = "bd2bcf0c-20db-474f-8407-5a6b159518bb",
-                            ConcurrencyStamp = "a411ecd6-1e7b-4469-91a7-4228f2799862",
-                            Name = "User",
-                            NormalizedName = "USER"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -387,13 +354,6 @@ namespace LocalDoctorManagement.Server.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = "3781efa7-66dc-47f0-860f-e506d04102e4",
-                            RoleId = "ad2bcf0c-20db-474f-8407-5a6b159518ba"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>

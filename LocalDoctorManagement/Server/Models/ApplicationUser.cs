@@ -8,5 +8,6 @@ namespace LocalDoctorManagement.Server.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        public string name { get; set; }
     }
 }
