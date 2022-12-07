@@ -1,0 +1,49 @@
+﻿<h3>FormComponent</h3>
+
+<EditForm Model="@patient" OnValidSubmit="@OnValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label>Name: </label>
+        <div>
+            <InputText @bind-Value="patient.Name" class="form-control" />
+            <ValidationMessage For="@(() => patient.Name)" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Pill Time (24 Hr Format):</label>
+        <div>
+            <InputText @bind-Value="patient.PillTime" class="form-control" />
+            <ValidationMessage For="@(() => patient.PillTime)" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Water Time (24 Hr Format):</label>
+        <div>
+            <InputText @bind-Value="patient.WaterTime" class="form-control" />
+            <ValidationMessage For="@(() => patient.WaterTime)" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Food Restrictions:</label>
+        <div>
+            <InputText @bind-Value="patient.FoodRestrictions" class="form-control" />
+            <ValidationMessage For="@(() => patient.FoodRestrictions)" />
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success btn-block">
+        @ButtonText
+    </button>
+    <BackToList Target="patients" />
+</EditForm>
+
+@code {
+    [Parameter] public Patient patient { get; set; }
+    [Parameter] public string ButtonText { get; set; } = "Save";
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+}
